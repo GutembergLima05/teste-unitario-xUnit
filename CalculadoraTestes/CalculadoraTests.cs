@@ -24,4 +24,46 @@ public class CalculadoraTests
         // Assert
         Assert.Equal(15, result);
     }
+
+    [Fact]
+    public void DeveSomar10Com10ERetornar20()
+    {
+        // Arange
+        int num1 = 10;
+        int num2 = 10;
+
+        // Act
+        int result = _calc.Somar(num1, num2);
+
+        // Assert
+        Assert.Equal(20, result);
+    }
+
+    [Fact]
+    public void DeveVerificarSe14EhParERetornarTrue()
+    {
+        // Arrange
+        int num = 14;
+
+        // Act
+        bool result = _calc.EhPar(num);
+
+        // Assert
+        Assert.True(result);
+    }
+
+    [Theory]
+    [InlineData(2)]
+    [InlineData(4)]
+    [InlineData(6)]
+    [InlineData(8)]
+    [InlineData(10)]
+    public void DeveVerificarSeOsNumerosSaoParesERetornarTrue(int numero)
+    {
+        // Act
+        bool result = _calc.EhPar(numero);
+
+        // Assert
+        Assert.True(result);
+    }
 }
